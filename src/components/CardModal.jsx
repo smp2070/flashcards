@@ -6,6 +6,7 @@ class CardModal extends Component {
         this.front.focus();
     }
     onSave(event) {
+        console.log('CardModal props', this.props);
         this.props.onSave({
             ...this.props.card,
             front: this.front.value,
@@ -20,20 +21,22 @@ class CardModal extends Component {
     render() {
         const { card, onDelete } = this.props;
         
-        console.log('props ', this.props);
+        // console.log('props ', this.props);
         // console.log('cardModal:  ', this.props.card);
         return (
             <div className="modal">
-                <h1>{onDelete ? "Edit" : "New"} Card</h1>
-                <label>Card Front:</label>
-                <textarea ref={el => this.front = el} defaultValue={card.front}></textarea>
-                <label>Card Back:</label>
-                <textarea ref={el => this.back = el} defaultValue={card.back}></textarea>
-                <p>
-                    <button onClick={this.onSave}>Save Card</button>
-                    <Link className="btn" to={`deck/${card.deckId}`}>Cancel</Link>
-                    { onDelete && <button onClick={this.onDelete} className="delete">Delete Card</button>}
-                </p>
+                <div className="modal-content">
+                    <h1>{onDelete ? "Edit" : "New"} Card</h1>
+                    <label>Card Front:</label>
+                    <textarea ref={el => this.front = el} defaultValue={card.front}></textarea>
+                    <label>Card Back:</label>
+                    <textarea ref={el => this.back = el} defaultValue={card.back}></textarea>
+                    <p className="modal-bottom">
+                        <button onClick={this.onSave.bind(this)} className="btn fifth">Save Card</button>
+                        <Link className="btn fifth" to={`/deck/${card.deckId}`}>Cancel</Link>
+                        { onDelete && <button onClick={this.onDelete.bind(this)} className="delete">Delete Card</button>}
+                    </p>
+                </div>
             </div>
         )
     }

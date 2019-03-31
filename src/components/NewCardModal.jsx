@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addCard } from '../actions';
 
 const mapStateToProps = (state, { match } ) => ({
-    card: match.params.deckId
+    card: {deckId: match.params.deckId}
 });
 
 const mapDispatchToProps = (dispatch) => ({

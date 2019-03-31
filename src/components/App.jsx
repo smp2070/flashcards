@@ -14,7 +14,7 @@ class App extends Component {
         <div className="area">
           <Sidebar />
           <Route path="/deck/:deckId" component={VisibleCards}>
-            <Route path="/deck/:deckId/new" component={NewCardModal}/>
+            {/* <Route path="/deck/:deckId/new" component={NewCardModal}/> */}
           </Route>
         </div>
       </Router>

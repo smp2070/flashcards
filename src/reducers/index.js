@@ -1,23 +1,31 @@
 import { combineReducers } from 'redux';
 
 let initialState = {
-    cards: [],
+    // cards: [],
 };
 
-const cards = (state = initialState, action) => {
+const cards = (state = [], action) => {
     switch (action.type) {
         case 'ADD_CARD':
-            return {
+            return [
                 ...state,
-                cards: [
-                    ...state.cards,
-                    {
-                        ...action.data,
-                        score: 1,
-                        id: +new Date()
-                    }
-                ]
-            }
+                {
+                    ...action.data,
+                    score: 1,
+                    id: +new Date()
+                }
+            ]
+            // return {
+            //     ...state,
+            //     cards: [
+            //         ...state.cards,
+            //         {
+            //             ...action.data,
+            //             score: 1,
+            //             id: +new Date()
+            //         }
+            //     ]
+            // }
         default:
             return state;
     }
