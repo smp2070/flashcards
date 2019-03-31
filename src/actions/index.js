@@ -20,3 +20,5 @@ export const setCurrentDeckId = id => {
         localStorage.setItem('state', JSON.stringify(rest));
     }
 }
+
+export const addCard = card => ({ type: 'ADD_CARD', data: card });
