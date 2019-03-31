@@ -60,7 +60,23 @@ textarea {
 .sidebar button {
   margin-bottom: 15px;
 }
-
+.hide {
+	display: none;
+}
+.close {
+  float: right;
+	font-weight: bold;
+	text-decoration: none;
+}
+.close:before {
+	content: '\274c';
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 .modal {
 	display: block;
 	position: fixed;

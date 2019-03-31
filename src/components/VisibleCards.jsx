@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import NewCardModal from './NewCardModal';
 import EditCardModal from './EditCardModal';
+import StudyModal from './StudyModal';
 import Card from './Card';
 import { connect } from 'react-redux';
 import fuzzysearch from 'fuzzysearch';
@@ -14,6 +15,7 @@ function VisibleCards(props) {
             {props.cards.map(card => <Card card={card} key={card.id} />)}
             <Route path="/deck/:deckId/new" component={NewCardModal}/>
             <Route path="/deck/:deckId/edit/:cardId" component={EditCardModal}/>
+            <Route path="/deck/:deckId/study" component={StudyModal}/>
         </div>
     )
 };

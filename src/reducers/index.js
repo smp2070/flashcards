@@ -1,5 +1,14 @@
 import { combineReducers } from 'redux';
 
+const showBack = (state = false, action) => {
+    switch (action.type) {
+        case 'SHOW_BACK':
+            return action.data || false;
+        default:
+            return state;
+    }
+}
+
 const cardFilter = (state = [], action) => {
     switch (action.type) {
         case 'FILTER_CARDS':
@@ -64,7 +73,8 @@ const reducer = combineReducers({
     decks,
     addingDeck,
     currentDeckId,
-    cardFilter
+    cardFilter,
+    showBack
 });
 
 export default reducer;
