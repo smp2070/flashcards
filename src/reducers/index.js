@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-// import { addDeck, showAddDeck, hideAddDeck } from '../actions';
 
 let initialState = {
     cards: [],
@@ -46,10 +45,19 @@ const addingDeck = (state = false, action) => {
     }
 }
 
+const currentDeckId = (state = null, action) => {
+    switch (action.type) {
+        case 'SET_CURRENT_DECK_ID': return action.id;
+        default: return state;
+    }
+}
+
+
 const reducer = combineReducers({
     cards,
     decks,
-    addingDeck
+    addingDeck,
+    currentDeckId
 })
 
 export default reducer;

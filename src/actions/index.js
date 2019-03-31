@@ -1,17 +1,22 @@
-// ADD_DECK
-// SHOW_ADD_DECK
-// HIDE_ADD_DECK
+export const addingDeck = name => ({ type: 'ADD_DECK', date: name });
 
+export const addDeck = name => {
+    return (dispatch, getState) => {
+        dispatch(addingDeck(name));
+        const { cards, decks } = getState();
+        localStorage.setItem('state', JSON.stringify({cards, decks}));
+    }
+};
 
-export const addDeck = name => ({
-    type: 'ADD_DECK',
-    date: name
-});
+export const showAddDeck = () => ({ type: 'SHOW_ADD_DECK' });
+export const hideAddDeck = () => ({ type: 'HIDE_ADD_DECK' });
 
-export const showAddDeck = () => ({
-    type: 'SHOW_ADD_DECK'
-});
+export const settingCurrentDeckId = id => ({ type: 'SET_CURRENT_DECK_ID', id });
 
-export const hideAddDeck = () => ({
-    type: 'HIDE_ADD_DECK'
-});
+export const setCurrentDeckId = id => {
+    return (dispatch, getState) => {
+        dispatch(settingCurrentDeckId(id));
+        const { addingDeck, ...rest } = getState();
+        localStorage.setItem('state', JSON.stringify(rest));
+    }
+}

@@ -1,46 +1,112 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
+
 ul {
-    list-style: none;
+  list-style: none;
 }
+
+.area {
+	display: flex;
+}
+
+.main {
+	flex-grow: 1;
+	padding: 10px;
+}
+
 .sidebar {
-    width: 300px;
-    background-color: gainsboro;
-    height: 100vh;
-    padding: 20px
+	width: 300px;
+	background-color: gainsboro;
+	height: 100vh;
+	padding: 20px;
 }
 
 .sidebar h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sidebar button {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
-button {
-	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
-	background-color:#f24537;
-	border-radius:6px;
-	border:1px solid #d02718;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #810e05;
+.toolbar {
+	background-color: #bbb;
+	padding: 15px;
+	border-bottom: 1px solid black
 }
-button:hover {
-	background-color:#c62d1f;
+
+.toolbar {
+	display: grid;
+	grid-template-columns: 285px 1fr;
 }
-button:active {
-	position:relative;
-	top:1px;
+
+.toolbar .buttons {
+	display: flex;
 }
+.toolbar .buttons a {
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+.btn {
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	border: 2px solid #e74c3c;
+	border-radius: 0.6em;
+	color: #e74c3c;
+	cursor: pointer;
+	display: flex;
+	align-self: center;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1;
+	/* margin: 10px; */
+	padding: 6px 10px;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+.btn:hover, .btn:focus {
+	/* color: #fff; */
+	outline: 0;
+}
+
+.fifth {
+	border-color: #8e44ad;
+	border-radius: 0;
+	color: #8e44ad;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	transition: color 150ms ease-in-out;
+}
+
+.fifth:after {
+	content: "";
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 100%;
+	background: #8e44ad;
+	z-index: -1;
+	transition: width 150ms ease-in-out;
+}
+.fifth:hover {
+	color: #fff;
+}
+.fifth:hover:after {
+	width: 110%;
+}
+  

@@ -5,12 +5,14 @@ import reducer from './reducers';
 import './index.css';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import { showAddDeck, hideAddDeck, addDeck } from './actions';
+import { getLocalStorage } from './localStorage';
 
 
-const store = createStore(reducer);
+const store = createStore(reducer, getLocalStorage(), applyMiddleware(thunk));
 
 store.subscribe(() => console.log(store.getState()));
 store.dispatch({
@@ -32,6 +34,7 @@ store.dispatch({
 window.show = () => store.dispatch(showAddDeck());
 window.hide = () => store.dispatch(hideAddDeck());
 window.add = () => store.dispatch(addDeck(new Date().toString()));
+
 
 ReactDOM.render(
     <Provider store={store}>
