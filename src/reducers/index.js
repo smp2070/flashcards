@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const cardFilter = (state, action) => {
+const cardFilter = (state = [], action) => {
     switch (action.type) {
         case 'FILTER_CARDS':
             return action.data;
@@ -63,7 +63,8 @@ const reducer = combineReducers({
     cards,
     decks,
     addingDeck,
-    currentDeckId
+    currentDeckId,
+    cardFilter
 });
 
 export default reducer;

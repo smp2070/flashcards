@@ -4,6 +4,9 @@ import NewCardModal from './NewCardModal';
 import EditCardModal from './EditCardModal';
 import Card from './Card';
 import { connect } from 'react-redux';
+import fuzzysearch from 'fuzzysearch';
+
+const matches = (filter, card) => fuzzysearch(filter, card.front) || fuzzysearch(filter, card.back);
 
 function VisibleCards(props) {
     return (
@@ -14,9 +17,9 @@ function VisibleCards(props) {
         </div>
     )
 };
-function mapStateToProps({cards}, { match: { params: {deckId}}}) {
+function mapStateToProps({cards, cardFilter}, { match: { params: {deckId}}}) {
     return {
-        cards: cards.filter(c => c.deckId === deckId)
+        cards: cards.filter(c => c.deckId === deckId && matches(cardFilter, c))
     }
 }
 
