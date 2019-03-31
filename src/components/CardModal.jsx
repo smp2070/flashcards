@@ -20,9 +20,6 @@ class CardModal extends Component {
     }
     render() {
         const { card, onDelete } = this.props;
-        
-        // console.log('props ', this.props);
-        // console.log('cardModal:  ', this.props.card);
         return (
             <div className="modal">
                 <div className="modal-content">
@@ -34,7 +31,7 @@ class CardModal extends Component {
                     <p className="modal-bottom">
                         <button onClick={this.onSave.bind(this)} className="btn fifth">Save Card</button>
                         <Link className="btn fifth" to={`/deck/${card.deckId}`}>Cancel</Link>
-                        { onDelete && <button onClick={this.onDelete.bind(this)} className="delete">Delete Card</button>}
+                        { onDelete && <button onClick={this.onDelete.bind(this)} className="delete btn">Delete Card</button>}
                     </p>
                 </div>
             </div>

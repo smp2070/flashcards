@@ -18,7 +18,32 @@ textarea {
 
 .main {
 	flex-grow: 1;
-	padding: 10px;
+	padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-items: center;
+	grid-auto-rows: 150px;
+	grid-gap: 15px;
+}
+.card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Roboto';
+	font-size: 20px;
+	border: 1px solid black;
+	width: 100%;
+	position: relative;
+}
+.card a {
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	opacity: 0;
+}
+.card:hover a {
+	opacity: 1;
+	transition: 0.4s
 }
 
 .sidebar {
@@ -57,7 +82,7 @@ textarea {
 .modal-bottom {
 	display: flex;
 }
-.modal-bottom button {
+.modal-bottom > * {
 	margin-right: 15px;
 }
 

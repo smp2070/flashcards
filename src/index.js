@@ -15,21 +15,6 @@ import { getLocalStorage } from './localStorage';
 const store = createStore(reducer, getLocalStorage(), applyMiddleware(thunk));
 
 store.subscribe(() => console.log(store.getState()));
-store.dispatch({
-    type: 'ADD_CARD',
-    data: {
-        front: 'front',
-        back: 'back'
-    }
-});
-
-store.dispatch({
-    type: 'ADD_CARD',
-    data: {
-        front: 'front2',
-        back: 'back2'
-    }
-});
 
 window.show = () => store.dispatch(showAddDeck());
 window.hide = () => store.dispatch(hideAddDeck());
